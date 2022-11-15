@@ -15,11 +15,11 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <!-- Feel free to update to what you want, but remember that --> 
     <!-- ImageJ plugins require an underscore '_' in the name... --> 
     <groupId>net.ijtools</groupId>
-    <artifactId>Plugin_Template</artifactId>
+    <artifactId>ij_Perigrain</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     
-    <name>plugins/Plugin_Template.jar</name>
-    <description>Simple project template for ImageJ plugins</description>
+    <name>Perigrain</name>
+    <description>ImageJ utilities for the Perigrain project</description>
     
     <!-- Global settings for the project --> 
     <properties>
@@ -46,12 +46,9 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
-        
-    </dependencies>
-    
+    </dependencies>  
     
     <build>
-        
         <resources>
             <resource>
                 <directory>${basedir}/src/main/resources</directory>
