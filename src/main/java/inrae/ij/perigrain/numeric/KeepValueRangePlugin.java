@@ -6,6 +6,7 @@ package inrae.ij.perigrain.numeric;
 import ij.IJ;
 import ij.ImagePlus;
 import ij.ImageStack;
+import ij.Macro;
 import ij.gui.GenericDialog;
 import ij.plugin.PlugIn;
 import ij.process.ImageProcessor;
@@ -16,6 +17,9 @@ import ij.process.ImageProcessor;
  */
 public class KeepValueRangePlugin implements PlugIn
 {
+    private static double lastMin = 0.0;
+    private static double lastMax= 255.0;
+
 
     @Override
     public void run(String arg)
@@ -25,8 +29,8 @@ public class KeepValueRangePlugin implements PlugIn
         
         // create the dialog, with operator options
         GenericDialog gd = new GenericDialog("Keep Value Range");
-        gd.addNumericField("Min Value",   0, 0);
-        gd.addNumericField("Max Value", 255, 0);
+        gd.addNumericField("Min Value", lastMin, 0);
+        gd.addNumericField("Max Value", lastMax, 0);
         gd.showDialog();
         
         // If cancel was clicked, do nothing
@@ -36,6 +40,13 @@ public class KeepValueRangePlugin implements PlugIn
         // retrieve user options
         double minValue = gd.getNextNumber();
         double maxValue = gd.getNextNumber();
+        
+        // remember parameters for next run
+        if (Macro.getOptions() == null)
+        {
+            lastMin = minValue;
+            lastMax = maxValue;
+        }
         
         // process image, either as a stack or as a 2D image
         ImagePlus resPlus = imagePlus.duplicate();

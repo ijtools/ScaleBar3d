@@ -6,6 +6,7 @@ package inrae.ij.perigrain.scalebar3d;
 import ij.IJ;
 import ij.ImagePlus;
 import ij.ImageStack;
+import ij.Macro;
 import ij.gui.GenericDialog;
 import ij.plugin.PlugIn;
 import inrae.ij.perigrain.scalebar3d.ScaleBar3D.Location;
@@ -19,9 +20,9 @@ import inrae.ij.perigrain.scalebar3d.ScaleBar3D.Orientation;
  */
 public class DrawScaleBar3dPlugin implements PlugIn
 {
-    String[] axisOptions = new String[] {"X-axis", "Y-axis", "Z-axis"};
+    static String[] orientationStrings = new String[] {"X-axis", "Y-axis", "Z-axis"};
     
-    String[] positionOptions = new String[] {
+    static String[] locationStrings = new String[] {
             "Front-Top-Left", 
             "Front-Top-Right", 
             "Front-Bottom-Left", 
@@ -31,6 +32,12 @@ public class DrawScaleBar3dPlugin implements PlugIn
             "Back-Bottom-Left", 
             "Back-Bottom-Right"};
     
+    private static int lastLength = 50;
+    private static int lastRadius = 5;
+    private static String lastOrientationString = orientationStrings[0];
+    private static String lastLocationString = locationStrings[7];
+    private static int lastSpacing = 10;
+
 
     @Override
     public void run(String arg)
@@ -47,11 +54,11 @@ public class DrawScaleBar3dPlugin implements PlugIn
         
         // create the dialog, with operator options
         GenericDialog gd = new GenericDialog("3D Scale Bar");
-        gd.addNumericField("Length", 20, 0);
-        gd.addNumericField("Radius",  2, 0);
-        gd.addChoice("Orientation", axisOptions, axisOptions[0]);
-        gd.addChoice("Location", positionOptions, positionOptions[7]);
-        gd.addNumericField("Spacing", 5, 0);
+        gd.addNumericField("Length", lastLength, 0);
+        gd.addNumericField("Radius",  lastRadius, 0);
+        gd.addChoice("Orientation", orientationStrings, lastOrientationString);
+        gd.addChoice("Location", locationStrings, lastLocationString);
+        gd.addNumericField("Spacing", lastSpacing, 0);
         gd.showDialog();
         
         // If cancel was clicked, do nothing
@@ -87,6 +94,17 @@ public class DrawScaleBar3dPlugin implements PlugIn
             case 7: location = Location.BACK_BOTTOM_RIGHT; break;
             default: throw new RuntimeException("Wrong index of scale bar location");
         };
+        
+        // remember parameters for next run
+        if (Macro.getOptions() == null)
+        {
+            lastLength = length;
+            lastRadius = radius;
+            lastOrientationString = orientationStrings[orientationIndex];
+            lastLocationString = locationStrings[locationIndex];
+            lastSpacing = spacing;
+        }
+        
         
         ScaleBar3D scaleBar = new ScaleBar3D(length, radius, orientation, location, spacing);
         
