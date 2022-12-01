@@ -15,11 +15,11 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <!-- Feel free to update to what you want, but remember that --> 
     <!-- ImageJ plugins require an underscore '_' in the name... --> 
     <groupId>net.ijtools</groupId>
-    <artifactId>ij_Perigrain</artifactId>
-    <version>0.1.2-SNAPSHOT</version>
+    <artifactId>Scale_Bar_3D</artifactId>
+    <version>1.0</version>
     
-    <name>Perigrain</name>
-    <description>ImageJ utilities for the Perigrain project</description>
+    <name>Scale_Bar_3D</name>
+    <description>Draw a 3D scale bar into 3D image</description>
     
     <!-- Global settings for the project --> 
     <properties>

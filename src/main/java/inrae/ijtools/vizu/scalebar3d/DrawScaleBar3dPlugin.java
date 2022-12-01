@@ -1,7 +1,7 @@
 /**
  * 
  */
-package inrae.ij.perigrain.scalebar3d;
+package inrae.ijtools.vizu.scalebar3d;
 
 import ij.IJ;
 import ij.ImagePlus;
@@ -9,8 +9,8 @@ import ij.ImageStack;
 import ij.Macro;
 import ij.gui.GenericDialog;
 import ij.plugin.PlugIn;
-import inrae.ij.perigrain.scalebar3d.ScaleBar3D.Location;
-import inrae.ij.perigrain.scalebar3d.ScaleBar3D.Orientation;
+import inrae.ijtools.vizu.scalebar3d.ScaleBar3D.Location;
+import inrae.ijtools.vizu.scalebar3d.ScaleBar3D.Orientation;
 
 /**
  * Draw a 3D scale bar onto the current 3D image.

@@ -1,15 +1,15 @@
 /**
  * 
  */
-package inrae.ij.perigrain.scalebar3d;
+package inrae.ijtools.vizu.scalebar3d;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 import ij.ImageStack;
-import inrae.ij.perigrain.scalebar3d.ScaleBar3D.Location;
-import inrae.ij.perigrain.scalebar3d.ScaleBar3D.Orientation;
+import inrae.ijtools.vizu.scalebar3d.ScaleBar3D.Location;
+import inrae.ijtools.vizu.scalebar3d.ScaleBar3D.Orientation;
 
 /**
  * @author dlegland
@@ -18,7 +18,7 @@ import inrae.ij.perigrain.scalebar3d.ScaleBar3D.Orientation;
 public class ScaleBar3DTest
 {
     /**
-     * Test method for {@link inrae.ij.perigrain.scalebar3d.ScaleBar3D#draw(ij.ImageStack)}.
+     * Test method for {@link inrae.ijtools.vizu.scalebar3d.ScaleBar3D#draw(ij.ImageStack)}.
      */
     @Test
     public final void testDraw()

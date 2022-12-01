@@ -4,4 +4,4 @@
  * @author dlegland
  *
  */
-package inrae.ij.perigrain.scalebar3d;
+package inrae.ijtools.vizu.scalebar3d;
