@@ -1,22 +1,13 @@
-# imagej-plugin-template
-Simple project template for creating ImageJ Plugins.
+# ScaleBar3d
+Simple plugin to add a Scale Bar to 3D images.
 
-The aim is to provide a quick way to start a plugin for ImageJ, using the "legacy" plugin style. 
+The scale bar is represented as a 3D cyclinder. User can select scale bar length (in voxels), 
+raidus, axis orientation, and the spacing from borders.
 
-The project is based on maven. It uses sci-java as parent configuration. The parent configuration 
-is somewhat old (1.126), but I encountered configuration troubles with more recent ones. 
-
-The base configuration has few dependencies:
-
-* ImageJ
-* JUnit
+When represented in 3D, this allows to assess the dimensions of the structures within the image.
 
 ## Installation
 
-Simply clone the project into the directory of your choice. 
-Then you can edit the pom.xml with informations specific to the project. 
-In particular, the name of the project is used by the Eclipse IDE to index
-the project.
+Copy the jar file into the "plugins" directory of the ImageJ/Fiji installation.
 
-A sample plugin file is provided in `src/main/java/net.ijt/DemoPlugin.java` file.
-The plugin configuration file is in `src/main/resources/plugins.config`.
+The new plugin appear in the menu "Plugins->INRAE->Vizu->Draw Scale Bar 3D".
